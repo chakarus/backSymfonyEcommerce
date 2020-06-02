@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PersonneRepository;
 use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
@@ -41,6 +42,7 @@ class Personne
     /**
      * @ORM\ManyToMany(targetEntity=Adresse::class, inversedBy="personnes",cascade={"persist","remove"})
      * @Groups({"personne:read", "personne:write"})
+     * @ApiSubresource
      */
     private $adresses;
 
